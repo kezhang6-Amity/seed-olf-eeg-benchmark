@@ -84,9 +84,11 @@ Baseline v1 is validated. The next gates are channel-resolved odor-controlled fe
 
 ## Independence and affiliation
 
-This is an independent, student-led research project developed by students at the University of Illinois Urbana-Champaign. It is not an official unit of, sponsored by, or endorsed by the university. It is not affiliated with the SEED-OLF authors. University names and marks are used only to describe contributor context.
+This repository is owned and maintained by Ke Zhang in a personal research capacity. It was not created for or on behalf of any company, employer, or commercial entity, and no such entity sponsors, controls, or endorses it.
 
-The work originated within the internal MindScents student research project. No future product brand is used in this repository.
+The research is independent student-led work developed by students at the University of Illinois Urbana-Champaign. It is not an official unit of, sponsored by, or endorsed by the university. It is not affiliated with the SEED-OLF authors. University names and marks are used only to describe contributor context.
+
+MindScents is used only as the name of an internal student research and grant project. It does not identify a company or the owner of this repository. No product brand is used here.
 
 ## License and citation
 

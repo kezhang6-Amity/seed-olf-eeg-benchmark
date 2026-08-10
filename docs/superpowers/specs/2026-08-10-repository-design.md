@@ -10,7 +10,7 @@
 
 Create a public, reproducible research repository for leakage-safe SEED-OLF EEG baselines and follow-up work on individual response, cross-session reliability, and few-shot personalization.
 
-The repository is an independent student-led research project. It is not an official University of Illinois Urbana-Champaign project and is not affiliated with the SEED-OLF authors.
+The repository is owned and maintained by Ke Zhang in a personal research capacity. It does not represent a company, employer, or commercial entity. It is an independent student-led research project, not an official University of Illinois Urbana-Champaign project, and is not affiliated with the SEED-OLF authors.
 
 ## Public boundary
 
