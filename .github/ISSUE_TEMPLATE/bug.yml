@@ -1,0 +1,23 @@
+name: Reproducibility bug
+description: Report a code, environment, or result mismatch
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction and environment
+    validations:
+      required: true

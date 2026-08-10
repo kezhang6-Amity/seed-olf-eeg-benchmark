@@ -1,7 +1,9 @@
 # SEED-OLF EEG Benchmark Repository Design
 
-**Date:** 2026-08-10  
-**Repository:** `seed-olf-eeg-benchmark`  
+**Date:** 2026-08-10
+
+**Repository:** `seed-olf-eeg-benchmark`
+
 **Status:** Approved for implementation
 
 ## Purpose
@@ -14,7 +16,7 @@ The repository is an independent student-led research project. It is not an offi
 
 Include source code, synthetic tests, configuration, notebooks, compact result summaries, methodology, and a roadmap. Exclude raw SEED-OLF files, full trial-level predictions, internal grant or pitch materials, resumes, credentials, caches, and machine-specific environments.
 
-MIT covers repository code only. It does not cover SEED-OLF data or third-party model code. MindScents may be named only as the internal research-project context. LemoriX will not appear while its public brand status remains unresolved.
+MIT covers repository code only. It does not cover SEED-OLF data or third-party model code. MindScents may be named only as the internal research-project context. Pending product branding remains outside the public repository.
 
 ## Architecture
 

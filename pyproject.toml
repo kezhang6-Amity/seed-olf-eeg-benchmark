@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seed-olf-eeg-benchmark"
+version = "0.1.0"
+description = "Leakage-safe public-data benchmarks for SEED-OLF EEG research"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Ke Zhang"}]
+keywords = ["EEG", "olfaction", "SEED-OLF", "affective computing", "reproducibility"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=2.0,<3",
+  "pandas>=2.2,<3",
+  "scipy>=1.13,<2",
+  "scikit-learn>=1.5,<2",
+  "pyriemann>=0.7,<1",
+]
+
+[project.optional-dependencies]
+notebook = [
+  "ipykernel>=6,<8",
+  "matplotlib>=3.9,<4",
+  "nbclient>=0.10,<1",
+  "nbformat>=5.10,<6",
+  "seaborn>=0.13,<1",
+]
+test = ["pytest>=8,<10"]
+
+[project.urls]
+Repository = "https://github.com/kezhang6-Amity/seed-olf-eeg-benchmark"
+Issues = "https://github.com/kezhang6-Amity/seed-olf-eeg-benchmark/issues"
+
+[project.scripts]
+seed-olf-baselines = "seed_olf_benchmark.experiments:main"
+seed-olf-riemannian = "seed_olf_benchmark.riemannian:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

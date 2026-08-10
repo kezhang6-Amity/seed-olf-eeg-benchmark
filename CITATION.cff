@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, please cite the software and the original SEED-OLF dataset paper."
+title: "SEED-OLF EEG Benchmark"
+type: software
+version: 0.1.0
+date-released: 2026-08-10
+authors:
+  - family-names: Zhang
+    given-names: Ke
+repository-code: "https://github.com/kezhang6-Amity/seed-olf-eeg-benchmark"
+license: MIT
+preferred-citation:
+  type: article
+  title: "SEED-OLF: A Novel EEG Dataset With Olfactory Stimulation for Emotion Recognition"
+  authors:
+    - family-names: Zhang
+      given-names: J.-M.
+    - family-names: Jiang
+      given-names: W.-B.
+    - family-names: Zheng
+      given-names: W.-L.
+    - family-names: Lu
+      given-names: B.-L.
+  journal: IEEE Transactions on Affective Computing
+  year: 2026
+  doi: 10.1109/TAFFC.2026.3662364

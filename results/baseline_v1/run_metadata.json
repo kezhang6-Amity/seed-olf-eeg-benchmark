@@ -1,0 +1,14 @@
+{
+  "sampling_rate_hz": 200.0,
+  "sampling_rate_status": "assumed_from_3000_samples_over_15_seconds",
+  "random_state": 20260810,
+  "n_trials": 2304,
+  "n_subjects": 32,
+  "n_sessions_per_subject": 3,
+  "feature_columns": 74,
+  "python": "3.12.13 (main, Mar  3 2026, 15:35:03) [Clang 21.1.4 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "scipy": "1.18.0"
+}

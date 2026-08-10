@@ -1,0 +1,35 @@
+name: Experiment proposal
+description: Propose a leakage-safe research experiment
+title: "experiment: "
+labels: ["experiment"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question and hypothesis
+    validations:
+      required: true
+  - type: textarea
+    id: comparator
+    attributes:
+      label: Non-EEG comparator and incremental claim
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Split, tuning, and leakage controls
+    validations:
+      required: true
+  - type: textarea
+    id: endpoint
+    attributes:
+      label: Primary endpoint and promotion gate
+    validations:
+      required: true
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Expected public artifacts
+    validations:
+      required: true
