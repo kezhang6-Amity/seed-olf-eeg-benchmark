@@ -56,6 +56,22 @@ def check_result_summaries() -> None:
     assert checks["status"] == "passed"
     assert checks["n_trials"] == 2304
 
+    phase2_dir = ROOT / "results" / "phase2_channel"
+    phase2_summary = pd.read_csv(phase2_dir / "prediction_summary.csv")
+    phase2_incremental = pd.read_csv(phase2_dir / "incremental_value.csv")
+    phase2_negative = pd.read_csv(phase2_dir / "negative_control_summary.csv")
+    phase2_checks = json.loads((phase2_dir / "validation_checks.json").read_text())
+
+    assert set(phase2_summary.protocol) == {"loso", "losession"}
+    assert set(phase2_summary.model) == {"M0", "M1", "M2", "M3", "M4", "M5"}
+    assert len(phase2_incremental) == 10
+    assert set(phase2_incremental.baseline) == {"M0"}
+    assert len(phase2_negative) == 20
+    assert not phase2_negative.all_statistical_gates_pass.any()
+    assert phase2_negative.loso_log_loss_improvement.median() <= 0.0
+    assert phase2_checks["status"] == "passed"
+    assert phase2_checks["negative_control_passed"]
+
 
 def main() -> None:
     paths = tracked_files()

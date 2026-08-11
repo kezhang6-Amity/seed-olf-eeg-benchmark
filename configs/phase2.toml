@@ -1,0 +1,24 @@
+experiment = "phase2_channel"
+random_state = 20260810
+sampling_rate_hz = 200.0
+sampling_rate_status = "assumed_from_3000_samples_over_reported_15_seconds"
+channel_identity_status = "array_indices_only_ch00_to_ch61"
+outer_protocols = ["loso", "losession"]
+models = ["M0", "M1", "M2", "M3", "M4", "M5"]
+c_grid = [0.001, 0.01, 0.1, 1.0, 10.0]
+solver = "lbfgs"
+max_iter = 5000
+class_weight = "none"
+bootstrap_replicates = 10000
+negative_control_permutations = 20
+brier_noninferiority_margin = -0.005
+
+[features]
+channels = 62
+bands = ["delta", "theta", "alpha", "beta", "gamma"]
+de_variance_floor = 1e-12
+de_variance_unit = "microvolt_squared"
+de_filter_order = 4
+de_edge_trim_seconds = 1.0
+welch_segment_seconds = 2.0
+welch_overlap_seconds = 1.0

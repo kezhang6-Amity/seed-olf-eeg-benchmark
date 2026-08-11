@@ -19,6 +19,8 @@ The strongest unseen-participant baseline is the training-fold odor prior. Chann
 
 The participant-block bootstrap estimate for odor + spectral EEG versus odor prior is **-0.0054 log-loss improvement, 95% CI [-0.0165, 0.0079]**. The interval includes zero. See the [baseline report](reports/baseline_v1.md) for the full interpretation.
 
+Phase 2 tested odor-controlled 62-channel features. Its primary log-power model also failed to add reliable probabilistic value: LOSO mean log-loss improvement was **-0.0376 (95% CI [-0.0661, -0.0096])** relative to the odor prior, despite an AUROC increase. The complete [Phase 2 report](reports/phase2_channel.md) documents the 20 permutation controls, data-quality audit, and interpretation boundary.
+
 ## Research questions
 
 1. Does EEG improve held-out subjective-valence prediction beyond train-derived odor priors?
@@ -55,6 +57,11 @@ export SEED_OLF_DATA_ROOT=/path/to/SEED-OLF
 seed-olf-baselines --output-dir artifacts/baseline_v1
 seed-olf-riemannian --output-dir artifacts/baseline_v1
 python scripts/validate_outputs.py --output-dir artifacts/baseline_v1
+
+seed-olf-phase2 --data-root "$SEED_OLF_DATA_ROOT" --output-dir artifacts/phase2_channel
+python scripts/validate_phase2_outputs.py --output-dir artifacts/phase2_channel
+python scripts/build_phase2_notebook.py --output-dir artifacts/phase2_channel
+python scripts/publish_phase2_summary.py --output-dir artifacts/phase2_channel
 ```
 
 Raw files, participant-level predictions, feature caches, and manifests are ignored by Git. See [data access and governance](docs/data-access.md).
@@ -65,8 +72,8 @@ Raw files, participant-level predictions, feature caches, and manifests are igno
 - `scripts/`: validation, notebook, and repository checks.
 - `configs/`: declared experiment assumptions and model settings.
 - `notebooks/`: audit and baseline-effect narratives.
-- `results/baseline_v1/`: compact tables supporting reported results.
-- `reports/`: reader-facing findings and limitations.
+- `results/`: compact, non-participant-level tables supporting reported results.
+- `reports/`: reader-facing findings and limitations, including the Phase 2 negative result.
 - `docs/`: methods, model provenance, decisions, and roadmap.
 - `tests/`: dataset-free synthetic checks used by CI.
 
@@ -80,7 +87,7 @@ Raw files, participant-level predictions, feature caches, and manifests are igno
 
 ## Status and roadmap
 
-Baseline v1 is validated. The next gates are channel-resolved odor-controlled features and few-shot cross-session personalization. EEGNet and TSception enter only if their evaluation answers a remaining error mode under grouped validation. See the [roadmap](docs/roadmap.md).
+Baseline v1 and the channel-resolved odor-controlled Phase 2 benchmark are validated. The next gate is few-shot cross-session personalization using transparent odor and failed-EEG comparators. EEGNet and TSception enter only if that evaluation identifies a remaining error mode under grouped validation. See the [roadmap](docs/roadmap.md).
 
 ## Independence and affiliation
 

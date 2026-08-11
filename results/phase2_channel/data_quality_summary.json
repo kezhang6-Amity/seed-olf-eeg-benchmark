@@ -1,0 +1,28 @@
+{
+  "n_trials": 2304,
+  "n_subjects": 32,
+  "n_sessions": 96,
+  "unique_trial_keys": 2304,
+  "phase_pair_coverage": 1.0,
+  "feature_count": 2480,
+  "finite_feature_rate": 1.0,
+  "zero_variance_features": 0,
+  "signal_qc_by_phase": {
+    "recovery": {
+      "records": 2304,
+      "flat_channel_records": 0,
+      "maximum_flat_channels": 0,
+      "de_floor_value_rate": 0.0,
+      "peak_abs_quantile_99": 0.00163720684273785,
+      "median_channel_std_quantile_01": 6.4062782675911435e-06
+    },
+    "stim": {
+      "records": 2304,
+      "flat_channel_records": 0,
+      "maximum_flat_channels": 0,
+      "de_floor_value_rate": 0.0,
+      "peak_abs_quantile_99": 0.0020010614878224974,
+      "median_channel_std_quantile_01": 6.955584800825396e-06
+    }
+  }
+}

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import io
 import pickle
 import re
 from pathlib import Path
@@ -35,11 +37,7 @@ class RestrictedNumpyUnpickler(pickle.Unpickler):
         return super().find_class(module, name)
 
 
-def load_payload(path: Path) -> dict:
-    """Load one audited payload and fail closed on schema changes."""
-
-    with path.open("rb") as handle:
-        payload = RestrictedNumpyUnpickler(handle).load()
+def _validate_payload(payload: object, path: Path) -> dict:
     if not isinstance(payload, dict) or set(payload) != EXPECTED_KEYS:
         raise ValueError(f"Unexpected payload schema in {path}")
     eeg = np.asarray(payload["X_raw"])
@@ -48,6 +46,22 @@ def load_payload(path: Path) -> dict:
     if not np.isfinite(eeg).all():
         raise ValueError(f"Non-finite EEG value in {path}")
     return payload
+
+
+def load_payload(path: Path) -> dict:
+    """Load one audited payload and fail closed on schema changes."""
+
+    with path.open("rb") as handle:
+        payload = RestrictedNumpyUnpickler(handle).load()
+    return _validate_payload(payload, path)
+
+
+def load_payload_with_digest(path: Path) -> tuple[dict, str, int]:
+    """Load and SHA-256 one payload from the same bytes read from disk."""
+
+    raw = path.read_bytes()
+    payload = RestrictedNumpyUnpickler(io.BytesIO(raw)).load()
+    return _validate_payload(payload, path), hashlib.sha256(raw).hexdigest(), len(raw)
 
 
 def parse_trial_key(filename: str) -> tuple[int, int, int]:

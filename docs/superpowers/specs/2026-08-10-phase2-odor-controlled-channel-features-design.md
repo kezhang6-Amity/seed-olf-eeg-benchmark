@@ -50,11 +50,11 @@ For each phase, channel, and declared frequency band, compute:
 2. relative band power for quality and sensitivity checks;
 3. differential entropy under the declared Gaussian band-limited formulation.
 
-For differential entropy, band-limit each channel with a fourth-order zero-phase Butterworth filter under the assumed 200 Hz sampling rate, trim one second from each edge after filtering, and calculate the sample variance of the remaining samples. Report
+For differential entropy, band-limit each channel with a fourth-order zero-phase Butterworth filter under the assumed 200 Hz sampling rate, convert the filtered signal from volts to microvolts, trim one second from each edge after filtering, and calculate the sample variance in microvolt squared of the remaining samples. Report
 
 `DE = 0.5 × ln(2πe × max(sample_variance, 1e-12))`
 
-in nats. The same edge trimming and estimator are used in every fold and phase.
+in nats. The `1e-12` floor is therefore expressed in microvolt squared. The same unit conversion, edge trimming, and estimator are used in every fold and phase. This unit was fixed during the pre-model data-quality smoke test after a volts-squared floor was found to clip 10.4% of stimulation and 11.6% of recovery DE values; the correction occurred before M3 was run and does not alter M2 log-power features.
 
 The declared bands remain delta 1–4 Hz, theta 4–8 Hz, alpha 8–13 Hz, beta 13–30 Hz, and gamma 30–45 Hz under the assumed sampling rate.
 

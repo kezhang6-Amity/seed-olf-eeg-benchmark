@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "n_trials": 2304,
+  "n_prediction_rows": 27648,
+  "feature_shape": [
+    2304,
+    2480
+  ],
+  "models": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5"
+  ],
+  "protocols": [
+    "loso",
+    "losession"
+  ],
+  "maximum_metric_recompute_difference": 8.326672684688674e-17,
+  "maximum_improvement_recompute_difference": 9.020562075079397e-17,
+  "negative_control_passed": true,
+  "sampling_rate_metadata_verified": false,
+  "channel_montage_verified": false,
+  "required_caveat": "200 Hz remains assumed; channels are indices only; y_emotion is a proxy target."
+}
