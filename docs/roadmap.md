@@ -12,22 +12,22 @@ Each phase is promoted only after tests, leakage checks, machine-readable output
 
 Decision: odor priors remain the primary benchmark; basic EEG does not yet show reliable incremental log-loss value.
 
-## Phase 2 — Odor-controlled channel features: next
+## Phase 2 — Odor-controlled channel features: complete
 
 - Verify official sampling rate, channel order, reference, and prior preprocessing.
 - Add channel-resolved band power and differential entropy.
 - Model residual information after training-fold odor effects.
 - Report all-trial performance as primary; treat observed-label disagreement subsets as exploratory.
 
-Gate: participant-block 95% CI for log-loss improvement excludes zero, Brier score does not worsen, and direction agrees in a cross-session protocol.
+Decision: the primary channel model was reliably worse than the odor prior on log loss. It is retained only as a transparent failed comparator.
 
-## Phase 3 — Few-shot personalization: next
+## Phase 3 — Few-shot personalization: complete
 
 - Calibrate with 0, 4, 8, 16, or 24 odor-stratified session-1 trials.
 - Test only on sessions 2–3.
 - Repeat deterministic calibration sampling and report participant heterogeneity.
 
-Output: calibration-size curve that informs future collection burden.
+Decision: a leave-target pooled odor posterior updated with Session-1 labels passes all gates with four trials (one per odor). The incremental gain is small; direct target-only frequencies and the Phase-2 EEG comparator are worse.
 
 ## Phase 4 — Compact deep models: conditional
 
@@ -35,7 +35,7 @@ Output: calibration-size curve that informs future collection burden.
 - TSception only after official montage verification.
 - At least five fixed seeds and inner-validation early stopping.
 
-Gate: improve a declared remaining error mode over odor and classical EEG baselines. Model size alone is not a reason to proceed.
+Gate: improve a declared remaining error mode over the Phase-3 P2 posterior and classical EEG baselines. Model size alone is not a reason to proceed.
 
 ## Deferred
 

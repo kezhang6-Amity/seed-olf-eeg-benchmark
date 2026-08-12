@@ -89,7 +89,7 @@ For each nonzero calibration size, P2 is considered to show reliable improvement
 3. P2 Brier 95% lower interval is at least -0.005;
 4. more than half of participants have a positive mean log-loss improvement;
 5. the session-2 and session-3 mean log-loss improvements are both non-negative;
-6. all leakage, sampling, coverage, metric, and cache audits pass.
+6. all leakage, sampling, coverage, metric, cache, and negative-control audits pass.
 
 The minimum feasible calibration burden is the smallest size that passes every condition. If no size passes, the result is a negative feasibility finding rather than a recommendation to increase model complexity.
 
@@ -97,7 +97,9 @@ P1, P3, P4, and comparisons among sizes are secondary. Their p-values, if report
 
 ## 9. Negative controls and audits
 
-Run 20 deterministic calibration-label permutation controls. Within each target participant and odor, permute only session-1 labels before sampling and fitting; retain the sessions-2/3 test labels unchanged. No permuted P2 run may pass the primary gate, and its median improvement at every size must be less than or equal to zero.
+Run 20 deterministic calibration-label permutation controls. Within each target participant, permute session-1 labels across odors before sampling and fitting; retain the sessions-2/3 test labels unchanged. This preserves each participant's Session 1 label total while breaking the odor-to-response correspondence used by P2.
+
+No permuted P2 run may pass the statistical gate, and the observed P2 log-loss improvement must exceed the maximum of the 20 permuted improvements at the same calibration size. A zero-centered null is not required: an across-odor permutation preserves an individual's overall response tendency, which may itself produce a small positive calibration effect.
 
 Automated checks include:
 

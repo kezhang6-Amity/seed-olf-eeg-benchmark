@@ -45,6 +45,7 @@ Issues = "https://github.com/kezhang6-Amity/seed-olf-eeg-benchmark/issues"
 seed-olf-baselines = "seed_olf_benchmark.experiments:main"
 seed-olf-riemannian = "seed_olf_benchmark.riemannian:main"
 seed-olf-phase2 = "seed_olf_benchmark.phase2_experiment:main"
+seed-olf-phase3 = "seed_olf_benchmark.phase3_experiment:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

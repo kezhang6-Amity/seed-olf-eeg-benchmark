@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "n_subjects": 32,
+  "n_trial_prediction_rows": 3698688,
+  "models": [
+    "P0",
+    "P1",
+    "P2",
+    "P4"
+  ],
+  "minimum_feasible_size": 4,
+  "maximum_metric_recompute_difference": 1.6653345369377348e-16,
+  "negative_control_permutations": 20
+}

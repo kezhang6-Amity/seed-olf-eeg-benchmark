@@ -1,0 +1,67 @@
+{
+  "experiment": "phase3_fewshot",
+  "classification": "passed",
+  "success_gate": {
+    "by_size": {
+      "4": {
+        "log_loss_ci_lower_above_zero": true,
+        "brier_point_not_worse": true,
+        "brier_ci_within_margin": true,
+        "majority_of_participants_improve": true,
+        "session_2_nonnegative": true,
+        "session_3_nonnegative": true,
+        "audits_passed": true,
+        "exceeds_permuted_null_maximum": true
+      },
+      "8": {
+        "log_loss_ci_lower_above_zero": true,
+        "brier_point_not_worse": true,
+        "brier_ci_within_margin": true,
+        "majority_of_participants_improve": true,
+        "session_2_nonnegative": true,
+        "session_3_nonnegative": true,
+        "audits_passed": true,
+        "exceeds_permuted_null_maximum": true
+      },
+      "16": {
+        "log_loss_ci_lower_above_zero": true,
+        "brier_point_not_worse": true,
+        "brier_ci_within_margin": true,
+        "majority_of_participants_improve": true,
+        "session_2_nonnegative": true,
+        "session_3_nonnegative": true,
+        "audits_passed": true,
+        "exceeds_permuted_null_maximum": true
+      },
+      "24": {
+        "log_loss_ci_lower_above_zero": true,
+        "brier_point_not_worse": true,
+        "brier_ci_within_margin": true,
+        "majority_of_participants_improve": true,
+        "session_2_nonnegative": true,
+        "session_3_nonnegative": true,
+        "audits_passed": true,
+        "exceeds_permuted_null_maximum": true
+      }
+    },
+    "minimum_feasible_size": 4
+  },
+  "random_state": 20260812,
+  "calibration_sizes": [
+    0,
+    4,
+    8,
+    16,
+    24
+  ],
+  "balanced_samples": 200,
+  "bootstrap_replicates": 10000,
+  "negative_control_permutations": 20,
+  "phase2_m5_source": "artifacts/phase2_channel/trial_predictions.csv",
+  "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 10:07:17) [Clang 14.0.6 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "numpy": "2.5.2",
+  "pandas": "2.3.3",
+  "scipy": "1.18.0",
+  "scikit_learn": "1.9.0"
+}

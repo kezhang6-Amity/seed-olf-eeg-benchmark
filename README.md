@@ -21,6 +21,8 @@ The participant-block bootstrap estimate for odor + spectral EEG versus odor pri
 
 Phase 2 tested odor-controlled 62-channel features. Its primary log-power model also failed to add reliable probabilistic value: LOSO mean log-loss improvement was **-0.0376 (95% CI [-0.0661, -0.0096])** relative to the odor prior, despite an AUROC increase. The complete [Phase 2 report](reports/phase2_channel.md) documents the 20 permutation controls, data-quality audit, and interpretation boundary.
 
+Phase 3 then tested transparent few-shot cross-session personalization. An odor-specific empirical-Bayes posterior passes the full validation gate with **4 Session-1 trials** (one per odor): Δlog-loss **0.000299**, 95% CI **[0.000052, 0.000635]**, with 78.1% of participants improved. The effect is small, but it exceeds all 20 label-permutation controls; direct individual frequencies and the Phase-2 EEG comparator are worse. See the [Phase 3 report](reports/phase3_fewshot.md).
+
 ## Research questions
 
 1. Does EEG improve held-out subjective-valence prediction beyond train-derived odor priors?
@@ -62,6 +64,11 @@ seed-olf-phase2 --data-root "$SEED_OLF_DATA_ROOT" --output-dir artifacts/phase2_
 python scripts/validate_phase2_outputs.py --output-dir artifacts/phase2_channel
 python scripts/build_phase2_notebook.py --output-dir artifacts/phase2_channel
 python scripts/publish_phase2_summary.py --output-dir artifacts/phase2_channel
+
+seed-olf-phase3 --data-root "$SEED_OLF_DATA_ROOT" --phase2-dir artifacts/phase2_channel --output-dir artifacts/phase3_fewshot
+python scripts/validate_phase3_outputs.py --output-dir artifacts/phase3_fewshot --phase2-dir artifacts/phase2_channel
+python scripts/build_phase3_notebook.py --output-dir artifacts/phase3_fewshot
+python scripts/publish_phase3_summary.py --output-dir artifacts/phase3_fewshot
 ```
 
 Raw files, participant-level predictions, feature caches, and manifests are ignored by Git. See [data access and governance](docs/data-access.md).
@@ -87,7 +94,7 @@ Raw files, participant-level predictions, feature caches, and manifests are igno
 
 ## Status and roadmap
 
-Baseline v1 and the channel-resolved odor-controlled Phase 2 benchmark are validated. The next gate is few-shot cross-session personalization using transparent odor and failed-EEG comparators. EEGNet and TSception enter only if that evaluation identifies a remaining error mode under grouped validation. See the [roadmap](docs/roadmap.md).
+Baseline v1, channel-resolved Phase 2, and transparent few-shot Phase 3 are validated. Phase 3 supports a pooled odor-response posterior with four balanced calibration trials; it does not support the current EEG representation. EEGNet and TSception enter only as predeclared incremental comparisons against P2 under the same grouped validation. See the [roadmap](docs/roadmap.md).
 
 ## Independence and affiliation
 

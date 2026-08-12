@@ -72,6 +72,20 @@ def check_result_summaries() -> None:
     assert phase2_checks["status"] == "passed"
     assert phase2_checks["negative_control_passed"]
 
+    phase3_dir = ROOT / "results" / "phase3_fewshot"
+    phase3_summary = pd.read_csv(phase3_dir / "prediction_summary.csv")
+    phase3_incremental = pd.read_csv(phase3_dir / "incremental_value.csv")
+    phase3_negative = pd.read_csv(phase3_dir / "negative_control_summary.csv")
+    phase3_checks = json.loads((phase3_dir / "validation_checks.json").read_text())
+
+    assert set(phase3_summary.model) == {"P0", "P1", "P2", "P4"}
+    assert len(phase3_incremental) == 15
+    assert set(phase3_incremental.baseline) == {"P0"}
+    assert len(phase3_negative) == 100
+    assert not phase3_negative.all_statistical_gates_pass.any()
+    assert phase3_checks["status"] == "passed"
+    assert phase3_checks["minimum_feasible_size"] == 4
+
 
 def main() -> None:
     paths = tracked_files()
